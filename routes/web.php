@@ -11,9 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/liyue', 'IndexController@index');
+// Route::get('/liyue', 'IndexController@index');
+Route::get('/','StaticPagesController@home')->name('home');
+Route::get('/help','StaticPagesController@help')->name('help');
+Route::get('/about','StaticPagesController@about')->name('about');
+Route::get('signup','UsersController@create')->name('signup');
+Route::resource('users','UsersController');
 
+
+Route::get('login','SessionsController@create')->name('login');//显示登陆页面
+Route::post('login','SessionsController@store')->name('login');//创建会话
+Route::delete('logout','SessionsController@destroy')->name('logout');//销毁会话
