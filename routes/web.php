@@ -26,3 +26,4 @@ Route::resource('users','UsersController');
 Route::get('login','SessionsController@create')->name('login');//显示登陆页面
 Route::post('login','SessionsController@store')->name('login');//创建会话
 Route::delete('logout','SessionsController@destroy')->name('logout');//销毁会话
+Route::resource('statuses','StatusesController',['only'=>['store','destroy']]);
