@@ -27,3 +27,7 @@ Route::get('login','SessionsController@create')->name('login');//显示登陆页
 Route::post('login','SessionsController@store')->name('login');//创建会话
 Route::delete('logout','SessionsController@destroy')->name('logout');//销毁会话
 Route::resource('statuses','StatusesController',['only'=>['store','destroy']]);
+Route::get('/users/{user}/followings','UsersController@followings')->name('users.followings');
+Route::get('/users/{user}/followers','UsersController@followers')->name('users.followers');
+Route::post('/users/followers/{user}', 'FollowersController@store')->name('followers.store');
+Route::delete('/users/followers/{user}', 'FollowersController@destroy')->name('followers.destroy');
